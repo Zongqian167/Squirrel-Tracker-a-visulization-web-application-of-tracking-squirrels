@@ -1,6 +1,6 @@
 import csv
 from django.core.management.base import BaseCommand
-from squirrel_tracker.models import Sighting
+from map.models import Sighting
     
 class Command(BaseCommand):
     help = 'Got squirrel data into pot'

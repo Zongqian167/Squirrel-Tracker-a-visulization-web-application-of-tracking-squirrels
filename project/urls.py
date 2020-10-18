@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('map/', include('squirrel_tracker.urls')),
+    path('map/', include('map.urls')),
 ]
