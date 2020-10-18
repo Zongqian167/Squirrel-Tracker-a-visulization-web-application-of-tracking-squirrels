@@ -18,7 +18,11 @@ class Command(BaseCommand):
         for dict_ in data:
             sighting_data.append(Sighting(
                 longitude=dict_['X'],
-                latitude=dict_['Y']
+                latitude=dict_['Y'],
+                unique_squirrel_id=dict_['Unique Squirrel ID'],
+                shift=dict_['Shift'],
+                date=dict_['Date'][4:8]+'-'+dict_['Date'][0:2]+'-'+dict_['Date'][2:4],
+                age=dict_['Age'],
             ))
 
         Sighting.objects.bulk_create(sighting_data)

@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>sightings</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>sightings</title>
   </head>
   <body>
-      <div>
-        <ul>
-          <li style="list-style-type:none;">Sightings</a></li>
-          <li display="inline-block;">
-            <a href="/sightings/add">Add a Record</a></li>
-          <li>
-            <a href="/sightings/stats">Stats Report</a></li>
-        </ul>
-      </div>
-{% for sighting in sightings_data %}
+	  <div>
+		<ul>
+		  <li style="list-style-type:none;">Sightings</a></li>
+		  <li display="inline-block;">
+			<a href="/sightings/add">Add a Record</a></li>
+		  <li>
+			<a href="/sightings/stats">Stats Report</a></li>
+		</ul>
+	  </div>
+	<table class="table table-bordered table-responsive table-striped table-hover">
+	  <thead class="thead-dark">
+		<tr>
+		  <th>longitude</th>
+		  <th>latitude</th>
+		  <th>unique_squirrel_id</th>
+		  <th>date</th>
+	  </thead>
+	  <tbody>{% for sighting in sightings_data %}
+		<tr>
+		  <td>{{sighting.longitude}}</td>
+		  <td>{{sighting.latitude}}</td>
+		  <td>
+			<a href="/sightings/{{sighting.unique_squirrel_id}}/">{{sighting.unique_squirrel_id}}</a></td>
+		  <td nowrap="nowrap">{{sighting.date|date:"F j, Y"}}</td>
+		  <td>
+			<a href="/sightings/{{sighting.unique_squirrel_id}}/">Update</a></td>
+		</tr>{% endfor %}</tbody>
 
-{{sighting.latitude}},{{sighting.longitude}}
+  </body>
+
+</html>
 
