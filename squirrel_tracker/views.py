@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import sighting
+from .models import Sighting
 
 def index(request):
-    return render(request, 'squirrel_tracker/index.html', {} )
+    map_data = Sighting.objects.all()[:100]
+    return render(request, 'squirrel_tracker/index.html', {"sightings":map_data} )

@@ -1,6 +1,6 @@
 import csv
 from django.core.management.base import BaseCommand
-from squirrel_tracker.models import sighting
+from squirrel_tracker.models import Sighting
     
 class Command(BaseCommand):
     help = 'Got squirrel data into pot'
@@ -16,12 +16,12 @@ class Command(BaseCommand):
 
         sighting_data = []
         for dict_ in data:
-            sighting_data.append(sighting(
+            sighting_data.append(Sighting(
                 longitude=dict_['X'],
                 latitude=dict_['Y']
             ))
 
-        sighting.objects.bulk_create(sighting_data)
+        Sighting.objects.bulk_create(sighting_data)
         msg = f"You are importing from {options['csv_file']}"
         self.stdout.write(self.style.SUCCESS(msg))
 
