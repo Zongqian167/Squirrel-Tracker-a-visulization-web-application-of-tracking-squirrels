@@ -1,25 +1,27 @@
 import csv
 from django.core.management.base import BaseCommand
-from squirrel_tracker.models import sightings
+from squirrel_tracker.models import sighting
     
 class Command(BaseCommand):
     help = 'Got squirrel data into pot'
 
     def add_arguments(self,parser):
-        parser.add_argument('squirrel_file', help = 'file containing squirrel data')
+        parser.add_argument('csv_file', help = 'file containing squirrel data')
+
 
     def handle(self, *args, **options):
-        file_ = options['squirrel_file']
-
-        with open(file_, 'r',encoding='UTF-8') as fp:
+        with open(options['csv_file']) as fp:
             reader = csv.DictReader(fp)
+            data = list(reader)
 
-            for item in reader:
-                obj = sightings()
-                obj.point = item['Lat/Long']
-               # obj.latitude = item['Y']
-               # obj.longitude = item['X']
+        sighting_data = []
+        for dict_ in data:
+            sighting_data.append(sighting(
+                longitude=dict_['X'],
+                latitude=dict_['Y']
+            ))
 
-                obj.save()
-        msg = f'You are importing from {file_}'
+        sighting.objects.bulk_create(sighting_data)
+        msg = f"You are importing from {options['csv_file']}"
         self.stdout.write(self.style.SUCCESS(msg))
+
