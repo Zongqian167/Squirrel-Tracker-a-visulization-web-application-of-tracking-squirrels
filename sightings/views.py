@@ -16,8 +16,10 @@ def add(request):
             form.save
             return redirect("/sightings/")
         else:
-            return redirect("/sightings/")
+            return JsonResponse({'errors':form.errors},status=400)
     else:
         form =squirrelform()
-
-    return render(request,'sightings/add.html',{"form":form})
+        context = {
+                'form':form,
+        }
+    return render(request,'sightings/add.html',context)
