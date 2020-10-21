@@ -7,12 +7,12 @@
 	<body>
 	  <ul>
    	    <li><a href="/sightings/">Sightings Main Page</a></li>
+	    <li><a href="/map/">Go to Map</a><li>
 	  </ul>
-	  <form action="." method="post">{% csrf_token %}
-
-		  {{form}}
-	  
-		  <button type="submit">Sumbit</button>
+	  <form action="." method="post">
+		  {% csrf_token %}
+	  <table align="center">{{form}}</table>
+         <center>  <button type="submit">Sumbit</button> </center>
 	</form>
 
 
