@@ -15,7 +15,9 @@ def add(request):
         form = squirrelform(request.POST)
         if form.is_valid():
             form.save
+            form.save()
             return redirect("/sightings/")
+            #return JsonResponse({})
         else:
             return JsonResponse({'errors':form.errors},status=400)
     else:
@@ -48,12 +50,14 @@ def stats(request):
     return render(request,'sightings/stats.html',context)
 
 def update(request,unique_squirrel_id):
-    number = get_object_or_404(Sighting,unique_squirrel_id = unique_squirrel_id)
+    number =  Sighting.objects.filter(unique_squirrel_id = unique_squirrel_id).first()
+   # number = get_object_or_404(Sighting,unique_squirrel_id = unique_squirrel_id)
    
     if request.method == "POST":
         form = squirrelform(request.POST,instance = number)
         if form.is_valid():
             form.save
+            form.save()
             return redirect("/sightings/")       
     else:
         form =squirrelform(instance = number)
