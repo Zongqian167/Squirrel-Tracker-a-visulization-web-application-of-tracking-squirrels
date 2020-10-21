@@ -31,7 +31,7 @@ class Command(BaseCommand):
                # climbing=toBoolean(dict_['Climbing']),
                # eating=toBoolean(dict_['Eating']),
                # foraging=toBoolean(dict_['Foraging']),
-              # other_activity=dict_['Other Activities'],
+                other_activity=dict_['Other Activities'],
                # kuks=toBoolean(dict_['Kuks']),
                # quaas=toBoolean(dict_['Quaas']),
                # moans=toBoolean(dict_['Moans']),

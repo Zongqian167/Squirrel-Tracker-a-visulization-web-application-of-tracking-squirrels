@@ -28,18 +28,22 @@ def add(request):
 def stats(request):
     data = Sighting.objects.all()
     total_number = len(Sighting.objects.all())
-    age =  list(data.values_list('age').annotate(Count('age')))
-    primary_fur_color = list(data.values_list('primary_fur_color').annotate(Count('primary_fur_color')))
-    chasing =  list(data.values_list('chasing').annotate(Count('chasing')))
-    location =  list(data.values_list('location').annotate(Count('location')))
-    eating =  list(data.values_list('eating').annotate(Count('eating')))
+    age = Sighting.objects.filter(age='Adult').count()
+   #age =  list(data.values_list('age').annotate(Count('age')))
+    primary_fur_color = Sighting.objects.filter(primary_fur_color='Cinnamon').count() 
+   #primary_fur_color = list(data.values_list('primary_fur_color').annotate(Count('primary_fur_color')))
+   #chasing = list(data.values_list('chasing').annotate(Count('chasing')))
+    location = Sighting.objects.filter(location="Ground Plane").count()
+    #eating = list(data.values_list('eating').annotate(Count('eating')))
+    shift = Sighting.objects.filter(shift="PM").count()
+    specific_location = Sighting.objects.filter(specific_location="tree").count()
     context = {
             'total_number':total_number, 
             'age':age,
             'primary_fur_color':primary_fur_color,
-            'chasing':chasing,
+            'shift':shift,
             'location':location,
-            'eating':eating,
+            'specific_location':specific_location,
     }
     return render(request,'sightings/stats.html',context)
 

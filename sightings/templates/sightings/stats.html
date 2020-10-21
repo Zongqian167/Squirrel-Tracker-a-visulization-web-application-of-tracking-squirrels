@@ -9,24 +9,44 @@
 	  <li><a href="/map">Back to Map</a></li>
       </ul>
 
-      <li>In this squirrel sightings data, the total number is {{total_number}}.</li>
+      <p>In this squirrel sightings data, the total number is {{total_number}}.</p>
+      <p>Following shows the total number of five specific attributes:</p> 
       
-     <table algn="center>
+
+      <style>
+		
+            table {
+  		border-collapse: collapse;
+	    }
+
+            table, th, td {
+ 		 border: 1px solid black;
+	    }
+            td,th {
+ 		 height: 50px;
+  		 text-align: center;
+	     }
+
+       </style>
+
+     <table algn="center" style="width:100%">
 	     <tr>
-		     <th>Age</th>
-		     <th>Primary Fur Color</th>
-		     <th>Chasing</th>
-		     <th>Location</th>
-		     <th>Eating</th>
+		     <th>Adult Age</th>
+		     <th>Primary Fur Color with Cinamon</th>
+		     <th>Specific Location with Tree</th>
+		     <th>Location with Ground Plane</th>
+		     <th>Shift with PM</th>
 	     </tr>
 
              <tr>
 	            <td>{{age}}</td>
                     <td>{{primary_fur_color}}</td>
-		    <td>{{chasing}}</td>
+		    <td>{{specific_location}}</td>
 		    <td>{{location}}</td>
-		    <td>{{eating}}</td>
-             <tr>
+		    <td>{{shift}}</td>
+             </tr>
       </table>
 
     </body>
+
+</html> 
