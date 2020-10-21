@@ -23,6 +23,25 @@ class Command(BaseCommand):
                 shift=dict_['Shift'],
                 date=dict_['Date'][4:8]+'-'+dict_['Date'][0:2]+'-'+dict_['Date'][2:4],
                 age=dict_['Age'],
+                primary_fur_color=dict_['Primary Fur Color'],
+                location=dict_['Location'],
+                specific_location=dict_['Specific Location'],
+                running=toBoolean(dict_['Running']),
+                chasing=toBoolean(dict_['Chasing']),
+                climbing=toBoolean(dict_['Climbing']),
+                eating=toBoolean(dict_['Eating']),
+                foraging=toBoolean(dict_['Foraging']),
+                other_activity=dict_['Other Activities'],
+                kuks=toBoolean(dict_['Kuks']),
+                quaas=toBoolean(dict_['Quaas']),
+                moans=toBoolean(dict_['Moans']),
+                tail_flags=toBoolean(dict_['Tail twitches']),
+                tail_twitches=toBoolean(dict_['Tail twitches']),
+                approaches=toBoolean(dict_['Approaches']),
+                indifferent=toBoolean(dict_['Indifferent']),
+                runs_from=toBoolean(dict_['Runs from'])
+
+
             ))
 
         Sighting.objects.bulk_create(sighting_data)
