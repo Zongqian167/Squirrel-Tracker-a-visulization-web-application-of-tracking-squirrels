@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+	<meta charset="UTF-8">
+  </head>
+
+  <body>
+      <ul>	      
+	      <li><a href="/sightings">Back to Sightings</a></li>
+              <li><a href="/map">Back to Map</a></li>
+      </ul>
+      <form action="." method="post">
+		  {% csrf_token %}
+	  <table align="center">{{form}}</table>
+         <center>  <button type="submit">Sumbit and Update</button> </center>
+	</form>
+
+
+
+
+</html>
