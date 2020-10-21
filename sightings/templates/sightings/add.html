@@ -8,9 +8,12 @@
 	  <ul>
    	    <li><a href="/sightings/">Sightings Main Page</a></li>
 	  </ul>
-	  <form action="{% url 'sightings/add' %}" method="post">{% csrf_token %}
-		  <button type="submit">Sumbit</button>
+	  <form action="." method="post">{% csrf_token %}
 
+		  {{form}}
+	  
+		  <button type="submit">Sumbit</button>
+	</form>
 
 
 

@@ -20,4 +20,4 @@ def add(request):
     else:
         form =squirrelform()
 
-    return render(request,'sightings/sightings/add.html',{"form":form})
+    return render(request,'sightings/add.html',{"form":form})
