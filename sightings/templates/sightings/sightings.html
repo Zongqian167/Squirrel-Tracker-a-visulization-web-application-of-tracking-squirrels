@@ -1,40 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	<!-- Required meta tags -->  
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<title>sightings</title>
   </head>
+
+
   <body>
-	  <div>
+	  <h4>Welcome to Sightings Main Page</h4>
+
+	  <!-- Optional JavaScript -->
+          <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 		<ul>
-		  <li style="list-style-type:none;">Sightings</a></li>
-		  <li display="inline-block;">
-			<a href="/sightings/add">Add a Record</a></li>
-		  <li>
-			<a href="/sightings/stats">Stats Report</a></li>
-		</ul>
-	  </div>
-	<table class="table table-bordered table-responsive table-striped table-hover">
-	  <thead class="thead-dark">
+	             <li><a href="/sightings/add">Add a Record</a></li>
+		     <li><a href="/sightings/stats">Go to Stats Report</a></li>
+	 	     <li>In the following, longitude(not required),latitude(not required),unique squirrel id and date will be shown:</li>
+	       </ul>
+	 <style>
+		table{
+		   border-collapse: collapse;
+		}
+		
+		table, th, td{
+		   border: 1px,solid black;
+		}
+
+		td,th{
+		    height:10px;
+		    text-align:center;
+		}
+	 </style>
+
+
+
+	  <table align="center" style="width:100">
+            
 		<tr>
-		  <th>longitude</th>
-		  <th>latitude</th>
+		  <th>Longitude</th>
+		  <th>Latitude</th>
 		  <th>unique_squirrel_id</th>
-		  <th>date</th>
+		  <th>Date</th>
 		</tr>
-	  </thead>
+
 	  <tbody>{% for sighting in sightings_data %}
 		<tr>
 		  <td>{{sighting.longitude}}</td>
 		  <td>{{sighting.latitude}}</td>
-		  <td>
-			<a href="/sightings/{{sighting.unique_squirrel_id}}/">{{sighting.unique_squirrel_id}}</a></td>
+		  <td><a href="/sightings/{{sighting.unique_squirrel_id}}/">{{sighting.unique_squirrel_id}}</a></td>
 		  <td nowrap="nowrap">{{sighting.date|date:"F j, Y"}}</td>
-		  <td>
-			<a href="/sightings/{{sighting.unique_squirrel_id}}/">Update</a></td>
-		</tr>{% endfor %}</tbody>
-
+		  <td><a href="/sightings/{{sighting.unique_squirrel_id}}/">Update</a></td>
+		</tr>{% endfor %}
+	  </tbody>
+          </table>
   </body>
 
 </html>
