@@ -1,5 +1,5 @@
 from django.forms import ModelForm 
-from sightings.models import Sighting
+from map.models import Sighting
 
 class squirrelform(ModelForm):
     class Meta:
