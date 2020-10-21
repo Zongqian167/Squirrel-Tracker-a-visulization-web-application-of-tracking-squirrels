@@ -1,5 +1,6 @@
 import csv
 from django.core.management.base import BaseCommand
+from django.urls import reverse
 from map.models import Sighting
     
 class Command(BaseCommand):
@@ -13,6 +14,8 @@ class Command(BaseCommand):
         with open(options['csv_file']) as fp:
             reader = csv.DictReader(fp)
             data = list(reader)
+
+
 
         sighting_data = []
         for dict_ in data:
@@ -31,7 +34,7 @@ class Command(BaseCommand):
                # climbing=toBoolean(dict_['Climbing']),
                # eating=toBoolean(dict_['Eating']),
                # foraging=toBoolean(dict_['Foraging']),
-                other_activity=dict_['Other Activities'],
+                other_activities=dict_['Other Activities'],
                # kuks=toBoolean(dict_['Kuks']),
                # quaas=toBoolean(dict_['Quaas']),
                # moans=toBoolean(dict_['Moans']),
@@ -41,8 +44,10 @@ class Command(BaseCommand):
                # indifferent=toBoolean(dict_['Indifferent']),
                # runs_from=toBoolean(dict_['Runs from'])
 
-
             ))
+
+   
+   
 
         Sighting.objects.bulk_create(sighting_data)
         msg = f"You are importing from {options['csv_file']}"

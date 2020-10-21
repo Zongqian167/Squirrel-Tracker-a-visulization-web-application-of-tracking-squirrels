@@ -26,8 +26,8 @@ class squirrelform(ModelForm):
                 'tail_flags',
                 'tail_twitches',
                 'approaches',
-                'indifferent',
-                'run_from',
+               # 'indifferent',
+               # 'run_from',
         ]
 
 

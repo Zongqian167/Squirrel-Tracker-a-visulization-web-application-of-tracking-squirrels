@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.http import JsonResponse
 from map.models import Sighting
 from .forms import squirrelform
-from django.db.models import Avg, Max, Min, Count
+#from django.db.models import Avg, Max, Min, Count
 
 
 def sightings(request):
@@ -48,15 +48,15 @@ def stats(request):
     return render(request,'sightings/stats.html',context)
 
 def update(request,unique_squirrel_id):
-    data = get_object_or_404(Sighting,unique_squirrel_id = unique_squirrel_id)
+    number = get_object_or_404(Sighting,unique_squirrel_id = unique_squirrel_id)
+   
     if request.method == "POST":
-        form = squirrelform(request.POST,instance = data)
+        form = squirrelform(request.POST,instance = number)
         if form.is_valid():
             form.save
-            return redirect("/sightings/")
-        
+            return redirect("/sightings/")       
     else:
-        form =squirrelform(instance = data)
+        form =squirrelform(instance = number)
         context = {
                 'form':form,
         }
