@@ -13,30 +13,28 @@
 			<a href="/sightings/add">Add a Record</a></li>
 		  <li>
 			<a href="/sightings/stats">Stats Report</a></li>
-		  
 		</ul>
 	  </div>
 	<table class="table table-bordered table-responsive table-striped table-hover">
 	  <thead class="thead-dark">
-		<tr>    
-		        <th>longitude</th>
-		        <th>latitude</th>
-		        <th>unique_squirrel_id</th>
-		        <th>date</th>
+		<tr>
+		  <th>longitude</th>
+		  <th>latitude</th>
+		  <th>unique_squirrel_id</th>
+		  <th>date</th>
 		</tr>
 	  </thead>
-	  <tbody>{% for item in sightings_data %}
+	  <tbody>{% for sighting in sightings_data %}
 		<tr>
-		  <td>{{item.longitude}}</td>
-		  <td>{{item.latitude}}</td>
+		  <td>{{sighting.longitude}}</td>
+		  <td>{{sighting.latitude}}</td>
 		  <td>
-			<a href="/sightings/{{sighting.unique_squirrel_id}}/">{{item.unique_squirrel_id}}</a></td>
-		  <td nowrap="nowrap">{{item.date|date:"F j, Y"}}</td>
+			<a href="/sightings/{{sighting.unique_squirrel_id}}/">{{sighting.unique_squirrel_id}}</a></td>
+		  <td nowrap="nowrap">{{sighting.date|date:"F j, Y"}}</td>
 		  <td>
-			<a href="/sightings/{{item.unique_squirrel_id}}/">Update</a></td>
+			<a href="/sightings/{{sighting.unique_squirrel_id}}/">Update</a></td>
 		</tr>{% endfor %}</tbody>
 
   </body>
 
 </html>
-

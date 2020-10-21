@@ -6,9 +6,9 @@
 	</head>
 	<body>
 	  <ul>
-   	    <li><a href="/sightings">Sightings Main Page</a></li>
+   	    <li><a href="/sightings/">Sightings Main Page</a></li>
 	  </ul>
-	  <form action="" method="post">{% csrf_token %}
+	  <form action="{% url 'sightings/add' %}" method="post">{% csrf_token %}
 		  <button type="submit">Sumbit</button>
 
 

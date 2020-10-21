@@ -25,5 +25,8 @@ class Sighting(models.Model):
     indifferent=models.BooleanField(null=True, blank=True)
     run_from=models.BooleanField(null=True, blank=True)
 
+    def __str__(self):
+        return self.unique_squirrel_id
+
 
 # Create your models here.

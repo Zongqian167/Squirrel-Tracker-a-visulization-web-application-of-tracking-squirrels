@@ -1,6 +1,8 @@
 from django.db import models
 
 class Sighting(models.Model):
+    
+
     longitude = models.FloatField(max_length=100)
     latitude = models.FloatField(max_length=100) 
     unique_squirrel_id = models.CharField(max_length=200)
@@ -24,4 +26,7 @@ class Sighting(models.Model):
     approaches=models.BooleanField(null=True, blank=True)
     indifferent=models.BooleanField(null=True, blank=True)
     run_from=models.BooleanField(null=True, blank=True)
+
+    def __str__(self):
+        return self.unique_squirrel_id
 # Create your models here.
