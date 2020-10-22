@@ -52,7 +52,7 @@
 
 		<tbody>{% for sighting in sightings_data %}
 		<tr>
-		  <td><a href="/sightings/{{sighting.unique_squirrel_id}}/">{{sighting.unique_squirrel_id}}</a></td>
+		  <td>{{sighting.unique_squirrel_id}}</a></td>
 		  <td nowrap="nowrap">{{sighting.date|date:"F j, Y"}}</td>
 		  <td><a href="/sightings/{{sighting.unique_squirrel_id}}/">Update</a></td>
 		</tr>{% endfor %}

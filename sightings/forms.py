@@ -13,7 +13,7 @@ class squirrelform(ModelForm):
                 'age',
                 'primary_fur_color',
                 'location',
-               'specific_location',
+                'specific_location',
                 'other_activities',
         ]
 
