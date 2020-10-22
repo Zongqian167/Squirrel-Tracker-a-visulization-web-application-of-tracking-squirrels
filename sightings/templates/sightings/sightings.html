@@ -35,14 +35,14 @@
 		}
 
 		td,th{
-		    width:250px;
-		    text-align:center;
+		   text-align: center;
+		   width: 250px;
 		}
 	 </style>
 
 
 
-	  <table align="center" style="width:100">
+	  <table align="center" style="width:80%" rules="all" border frame="box">
             
 		<tr>
 		  <th>Unique Squirrel ID</th>
@@ -50,13 +50,13 @@
 		  <th>Update Link</th>
 		</tr>
 
-	  <tbody>{% for sighting in sightings_data %}
+		<tbody>{% for sighting in sightings_data %}
 		<tr>
 		  <td><a href="/sightings/{{sighting.unique_squirrel_id}}/">{{sighting.unique_squirrel_id}}</a></td>
 		  <td nowrap="nowrap">{{sighting.date|date:"F j, Y"}}</td>
 		  <td><a href="/sightings/{{sighting.unique_squirrel_id}}/">Update</a></td>
 		</tr>{% endfor %}
-	  </tbody>
+		</tbody>
           </table>
   </body>
 
