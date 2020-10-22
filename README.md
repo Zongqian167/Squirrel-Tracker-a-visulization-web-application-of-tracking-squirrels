@@ -36,7 +36,7 @@ Methods Supported: GET
 A view to update a particular sighting.
 
 Methods Supported: GET & POST
-> Located at: /sightings/<unique-squirrel-id>
+> Located at: /sightings/<<unique-squirrel-id>unique-squirrel-id>
 
 ### Add
 A view to create a new sighting.
