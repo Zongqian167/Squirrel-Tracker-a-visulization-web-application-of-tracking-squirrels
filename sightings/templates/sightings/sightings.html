@@ -12,7 +12,7 @@
 
 
   <body>
-	  <h4>Welcome to Sightings Main Page</h4>
+	  <h4>Welcome to Sightings Page</h4>
 
 	  <!-- Optional JavaScript -->
           <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -22,8 +22,8 @@
 
 		<ul>
 	             <li><a href="/sightings/add">Add a Record</a></li>
-		     <li><a href="/sightings/stats">Go to Stats Report</a></li>
-	 	     <li>In the following, longitude(not required),latitude(not required),unique squirrel id and date will be shown:</li>
+		     <li><a href="/sightings/stats">Go to Statistics Report</a></li>
+	 	     <li>Squirrel data are shown as follows:</li>
 	       </ul>
 	 <style>
 		table{
@@ -35,7 +35,7 @@
 		}
 
 		td,th{
-		    height:10px;
+		    width:250px;
 		    text-align:center;
 		}
 	 </style>
@@ -45,16 +45,13 @@
 	  <table align="center" style="width:100">
             
 		<tr>
-		  <th>Longitude</th>
-		  <th>Latitude</th>
-		  <th>unique_squirrel_id</th>
+		  <th>Unique Squirrel ID</th>
 		  <th>Date</th>
+		  <th>Update Link</th>
 		</tr>
 
 	  <tbody>{% for sighting in sightings_data %}
 		<tr>
-		  <td>{{sighting.longitude}}</td>
-		  <td>{{sighting.latitude}}</td>
 		  <td><a href="/sightings/{{sighting.unique_squirrel_id}}/">{{sighting.unique_squirrel_id}}</a></td>
 		  <td nowrap="nowrap">{{sighting.date|date:"F j, Y"}}</td>
 		  <td><a href="/sightings/{{sighting.unique_squirrel_id}}/">Update</a></td>
