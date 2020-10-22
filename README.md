@@ -45,6 +45,7 @@ Methods Supported: GET & POST
 > Located at: /sightings/add
 
 ### Stats
+Stats include five of the attributes listed in the initial CSV download. 
 
 Method: GET
 >Located at: /sightings/stats
